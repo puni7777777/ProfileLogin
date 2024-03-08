@@ -1,0 +1,24 @@
+.numbers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rollno-selected{
+    width: 50vw;
+    height: 50vh;
+    background-color: blue;
+}
+
+.rollno-not-selected{
+    width: 50vw;
+    height: 50vh;
+    background-color: red;
+}
+
+.submitbtn{
+    width: 100px;
+    height: 50px;
+    background: transparent;
+    border-radius: .5rem;
+}

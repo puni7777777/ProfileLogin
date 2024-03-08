@@ -1,0 +1,148 @@
+@font-face {
+    font-family: 'chalk-font';
+    src: url(./pics/DrawingGuides-MJ7p.ttf) format('truetype');
+}
+
+* {
+    font-family: 'chalk-font';
+    color: whitesmoke;
+    --border-width: .2rem;
+    --chalk-color: rgba(245, 245, 245, .8);
+    --outer-border-radius: 1.7rem;
+    --inner-border-radius: calc(var(--outer-border-radius) - .3rem);
+    --btn-background-color: rgb(20, 97, 63);
+    --btn-background-color-hover: rgb(11, 68, 44);
+    --Id-background-color: rgb(21, 115, 73);
+    --passw-background-color: rgb(26, 107, 70);
+    --font-height: 1.3rem;
+}
+
+.classroom {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./pics/green_board.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* custom size for the div to fit in the picture */
+.board {
+    /* background-color: red; */
+    width: 42rem;
+    height: 23rem;
+    margin-bottom: 12rem;
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* custom main border sizes to fit the box  into the picture */
+.writings {
+    /* background-color: blue; */
+    width: 30rem;
+    min-height: 14rem;
+    max-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    border: .3rem solid var(--chalk-color);
+    border-radius: var(--outer-border-radius);
+}
+
+.creds {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    justify-content: center;
+}
+
+.mail span,
+.passw span {
+    font-size: var(--font-height);
+}
+
+span {
+    pointer-events: none;
+}
+
+.mail,
+.passw {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+}
+
+.mail input,
+.passw input {
+    border-radius: 5px;
+    padding: 5px;
+    width: 70%;
+    height: var(--font-height);
+    font-size: 1.3rem;
+    outline: none;
+    border: none;
+}
+
+.mail input {
+    background-color: var(--input-background-color);
+}
+
+.passw input {
+    background-color: var(--passw-background-color);
+}
+
+.techstu {
+    /* background-color: aqua; */
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.techstu button {
+    width: 50%;
+    height: 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: var(--btn-background-color);
+    font-size: var(--font-height);
+}
+
+.techstu button:hover {
+    background-color: var(--btn-background-color-hover);
+}
+
+.student {
+    border-radius: 0 0 0 var(--inner-border-radius);
+}
+
+.teacher {
+    border-radius: 0 0 var(--inner-border-radius) 0;
+}
+
+.split {
+    width: var(--border-width);
+    height: 100%;
+    background-color: var(--chalk-color);
+    position: absolute;
+    margin-top: var(--border-width);
+}
+
+.split-top {
+    width: 100%;
+    height: var(--border-width);
+    background-color: var(--chalk-color);
+    position: absolute;
+}
