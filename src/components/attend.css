@@ -1,24 +1,167 @@
-.numbers{
+* {
+    --present-color: green;
+    --absent-color: red;
+    --white-color: white;
+    --black-color: black;
+}
+
+.total-form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.rollno-selected{
-    width: 50vw;
-    height: 50vh;
-    background-color: blue;
+
+.which-year {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    background-color: var(--black-color);
+    box-sizing: border-box;
+    box-shadow: 0 0 0px .1rem rgba(0, 0, 0, 0.06);
+    padding: 0.5rem;
+    width: 30rem;
+    font-size: 1rem;
 }
 
-.rollno-not-selected{
-    width: 50vw;
-    height: 50vh;
-    background-color: red;
+.which-year .year {
+    flex: 1 1 auto;
+    text-align: center;
 }
 
-.submitbtn{
+.which-year .year input {
+    display: none;
+}
+
+.which-year .year .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: .5rem;
+    /* color: rgba(51, 65, 85, 1); */
+    color: var(--white-color);
+    transition: all .5s ease-in-out;
+}
+
+.which-year .year input:checked + .name {
+    background-color: #fff;
+    color: var(--black-color);
+}
+
+.no-of-students {
+    display: flex;
+    flex-direction: column;
+}
+
+.rollno {
+    min-width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: .5rem;
+    transition: .5s;
+}
+
+.selected {
+    background-color: var(--present-color);
+}
+
+.not-selected {
+    background-color: var(--absent-color);
+}
+
+.submitbtn {
     width: 100px;
     height: 50px;
     background: transparent;
     border-radius: .5rem;
+}
+
+.rollnumbtn {
+    display: flex;
+    width: 30rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.no-of-students {
+    margin: 2rem;
+    position: relative;
+}
+
+.no-of-students input {
+    width: 100%;
+    padding: .5rem 0;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 1.7rem;
+    border: none;
+    border-bottom: .1rem solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.no-of-students label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: .5rem 0;
+    color: white;
+    pointer-events: none;
+    transition: .4s;
+}
+
+.no-of-students input:focus~label {
+    top: -20px;
+    left: 0;
+    color: #bdb8b8;
+    font-size: 12px;
+}
+
+.generate-rollno {
+    display: flex;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.submitbtn {
+    /* padding: 0.8em 1.8em; */
+    border: 2px solid var(--white-color);
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: var(--white-color);
+
+}
+
+.submitbtn::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: var(--white-color);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.submitbtn:hover::before {
+    width: 105%;
+}
+
+.submitbtn:hover {
+    color: black;
 }

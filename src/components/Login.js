@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import './login.css'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+    const create_auth = getAuth();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const create_auth = getAuth();
+    const home_page = useNavigate()
 
     const create_User = e => {
         e.preventDefault();
@@ -14,6 +16,7 @@ export default function Login() {
             .then((userCredential) => {
                 console.log(userCredential)
                 const user = userCredential.user;
+                home_page('/home');
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -30,6 +33,7 @@ export default function Login() {
             .then((userCredential) => {
                 console.log(userCredential)
                 const user = userCredential.user;
+                home_page('/home');
 
             })
             .catch((error) => {
@@ -37,6 +41,7 @@ export default function Login() {
                 const errorMessage = error.message;
                 console.log(errorCode)
                 console.log(errorMessage)
+                alert('invalid email or password please try again after some time')
             });
     }
     const get_mail = (e) => {
@@ -66,7 +71,7 @@ export default function Login() {
                     <div className="techstu">
                         <div className="split"></div>
                         <div className="split-top"></div>
-                        <button className='student' onClick={signin_User} >Student</button>
+                        <button className='student' onClick={create_User} >Student</button>
                         <button className='teacher' onClick={signin_User} >Teacher</button>
                     </div>
                 </div>

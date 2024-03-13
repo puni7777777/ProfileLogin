@@ -1,15 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-import './server.js'
+import './Firebase.js';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Attend from './components/Attend';
 import Login from './components/Login';
 import Signup from "./components/Signup.js";
 
 function App() {
   return (
-    <>
-    <Login />
-    </>
+    <BrowserRouter>
+      <>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/home' element={<Attend />} />
+        </Routes>
+      </>
+    </BrowserRouter>
   );
 }
 
