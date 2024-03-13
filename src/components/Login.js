@@ -71,7 +71,7 @@ export default function Login() {
                     <div className="techstu">
                         <div className="split"></div>
                         <div className="split-top"></div>
-                        <button className='student' onClick={create_User} >Student</button>
+                        <button className='student' onClick={signin_User} >Student</button>
                         <button className='teacher' onClick={signin_User} >Teacher</button>
                     </div>
                 </div>
