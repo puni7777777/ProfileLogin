@@ -34,7 +34,7 @@ export default function Signup() {
   return (
     <div className='classroom'>
       <div className="board">
-        <h1>COLLEGE PROFILE LOGIN</h1>
+        <h1>COLLEGE PROFILE SIGNUP</h1>
         <div className="writings">
           <div className="creds">
             <div className="mail">
@@ -46,13 +46,17 @@ export default function Signup() {
               <input type="password" name="password" id="password" onChange={get_pass} />
             </div>
           </div>
-          <span>signup as</span>
-          <div className="techstu">
+          {/* <span>signup as</span> */}
+          <div className="login">
             <div className="split"></div>
             <div className="split-top"></div>
             <button className='student' onClick={create_User} >Student</button>
             <button className='teacher' onClick={create_User} >Teacher</button>
           </div>
+        </div>
+        <div className="signup-link">
+          <p>Already a user?</p>
+          <a href='/'>Login</a>
         </div>
       </div>
     </div>

@@ -14,6 +14,7 @@ export default function Attend() {
     const present_students = [];
     const absent_students = [];
     const [checkyear, setCheckyear] = useState({ first_year: 'first-year', second_year: 'second-year', third_year: 'third-year', final_year: 'final-year', });
+    const [no_of_presenties, setNo_of_presenties] = useState(present_students.length)
 
     const today = new Date();
 
@@ -24,7 +25,6 @@ export default function Attend() {
     const today_date = date + '/' + month + '/' + year;
 
     const [studentData, setStudentData] = useState({ Date: today_date, Time: time, whichclass: whichclass, present: present_students, absent: absent_students });
-    console.log(studentData);
 
     const change_button_color = (e, index) => {
         const name = e.target.name;
@@ -83,8 +83,8 @@ export default function Attend() {
         const response = fetch('https://attendance-cdc09-default-rtdb.firebaseio.com/studentsPresent.json', options)
 
         if (response) {
-            alert("Attendance Marked Successfully");
-        }else{
+            alert("Attendance Marking Successfull")
+        } else {
             alert("Attendance Marking failed");
         }
     }

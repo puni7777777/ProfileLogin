@@ -16,7 +16,7 @@ export default function Login() {
             .then((userCredential) => {
                 console.log(userCredential)
                 const user = userCredential.user;
-                home_page('/home');
+                home_page('/Home');
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -33,8 +33,7 @@ export default function Login() {
             .then((userCredential) => {
                 console.log(userCredential)
                 const user = userCredential.user;
-                home_page('/home');
-
+                home_page('/Home');
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -67,13 +66,16 @@ export default function Login() {
                             <input type="password" name="password" id="password" onChange={get_pass} />
                         </div>
                     </div>
-                    <span>Login as</span>
+                    {/* <span>Login as</span> */}
                     <div className="techstu">
-                        <div className="split"></div>
+                        {/* <div className="split"></div> */}
                         <div className="split-top"></div>
-                        <button className='student' onClick={signin_User} >Student</button>
-                        <button className='teacher' onClick={signin_User} >Teacher</button>
+                        <button className='login-btn' onClick={signin_User} >Login</button>
                     </div>
+                </div>
+                <div className="signup-link">
+                    <p>New user?</p>
+                    <a href='/signUp'>register here</a>
                 </div>
             </div>
         </div>
