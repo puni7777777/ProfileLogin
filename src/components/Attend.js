@@ -25,6 +25,7 @@ export default function Attend() {
     const today_date = date + '/' + month + '/' + year;
 
     const [studentData, setStudentData] = useState({ Date: today_date, Time: time, whichclass: whichclass, present: present_students, absent: absent_students });
+    console.log(studentData)
 
     const change_button_color = (e, index) => {
         const name = e.target.name;
@@ -73,19 +74,25 @@ export default function Attend() {
         e.preventDefault();
         calculate_attendance();
 
-        const options = {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(studentData)
-        }
-        const response = fetch('https://attendance-cdc09-default-rtdb.firebaseio.com/studentsPresent.json', options)
-
-        if (response) {
-            alert("Attendance Marking Successfull")
+        if (studentData.whichclass === "") {
+            alert('Please select the Year')
+        } else if (studentData.present === "") {
+            alert('No student is selected');
         } else {
-            alert("Attendance Marking failed");
+            const options = {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(studentData)
+            }
+            const response = fetch('https://attendance-cdc09-default-rtdb.firebaseio.com/studentsPresent.json', options)
+
+            if (response) {
+                alert("Attendance Marking Successfull")
+            } else {
+                alert("Attendance Marking failed");
+            }
         }
     }
 
@@ -103,7 +110,12 @@ export default function Attend() {
     }
 
     const handleCheck = (e) => {
-        setStudentData({ ...studentData, whichclass: e.target.value });
+        const check = e.target.value;
+        if (check === '') {
+            alert('Please select the Year')
+        } else {
+            setStudentData({ ...studentData, whichclass: check });
+        }
     }
 
     return (

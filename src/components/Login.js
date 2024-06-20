@@ -63,7 +63,7 @@ export default function Login() {
                         </div>
                         <div className="passw">
                             <span>Password :</span>
-                            <input type="password" name="password" id="password" onChange={get_pass} />
+                            <input type="password" name="password" id="password" onChange={get_pass} required/>
                         </div>
                     </div>
                     {/* <span>Login as</span> */}
